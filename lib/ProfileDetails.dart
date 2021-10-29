@@ -31,10 +31,12 @@ class ProfileDetails extends StatelessWidget {
                           child: Container(
                             margin: EdgeInsets.only(left: 5, right: 20),
                             width: 70,
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  '${items[index].avatar.toString()}'),
-                            ),
+                            child: Image(
+                                image: (items[index].avatar != null)
+                                    ? NetworkImage(
+                                        '${items[index].avatar.toString()}')
+                                    : NetworkImage(
+                                        'https://pic.onlinewebfonts.com/svg/img_550783.png')),
                           ),
                         ),
                         Container(
