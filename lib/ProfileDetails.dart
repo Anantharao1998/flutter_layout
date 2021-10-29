@@ -67,7 +67,9 @@ class ProfileDetails extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(left: 15.0, top: 2.5),
                                 child: Text(
-                                  '${items[index].status.toString()}',
+                                  (items[index].status.toString() == 'null')
+                                      ? ''
+                                      : '${items[index].status.toString()}',
                                   style: TextStyle(
                                       fontSize: 15, color: Colors.grey),
                                 ),
