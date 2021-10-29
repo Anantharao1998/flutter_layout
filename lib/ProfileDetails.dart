@@ -13,7 +13,6 @@ class ProfileDetails extends StatelessWidget {
       future: ReadJsonData(),
       builder: (context, data) {
         var items = data.data as List<Details>;
-        bool _hasImage = true;
 
         return ListView.builder(
           itemBuilder: (context, index) => Container(
@@ -34,9 +33,8 @@ class ProfileDetails extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(left: 5, right: 20),
                           width: 80,
-                          child: Image(
-                            image: NetworkImage(
-                                // ignore: dead_code
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(
                                 '${items[index].avatar.toString()}'),
                           ),
                         ),
@@ -69,7 +67,7 @@ class ProfileDetails extends StatelessWidget {
                               padding:
                                   const EdgeInsets.only(left: 15.0, top: 2.5),
                               child: Text(
-                                'Status....!',
+                                '${items[index].status.toString()}',
                                 style:
                                     TextStyle(fontSize: 20, color: Colors.grey),
                               ),
@@ -96,7 +94,7 @@ class ProfileDetails extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  "23",
+                                  '${items[index].message.toString()}',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
